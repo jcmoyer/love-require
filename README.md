@@ -1,9 +1,9 @@
 # What's this?
 
-lfsrequire implements a better require function for LÖVE-based games. The
+love-require implements a better require function for LÖVE-based games. The
 rationale for this module is that `require` does not respect `package.path` in
 `.love` packages because LÖVE registers its own loader to handle loading
-scripts from these packages correctly. With lfsrequire you can control where
+scripts from these packages correctly. With love-require you can control where
 require looks for modules. This means that you can better organize your
 projects by putting all of your third party dependencies into a directory called
 `lib`, for example.
@@ -11,16 +11,16 @@ projects by putting all of your third party dependencies into a directory called
 To use it, simply include it in the root folder of your project. Then, in
 `main.lua`, add these lines to the top:
 
-    local lfsrequire = require('lfsrequire')
-    lfsrequire.enable()
+    local loverequire = require('love-require')
+    loverequire.enable()
 
 Then you can mount arbitrary directories to look for Lua modules in:
 
-    lfsrequire.mount('lib')
+    loverequire.mount('lib')
 
 Now when you `require('foo.bar.baz')`, `lib/foo/bar/baz.lua` will be the first
-place looked at. If nothing is found there, lfsrequire will delegate the call to
-the default Lua `require` function, which will look at `foo/bar/baz.lua`.
+place looked at. If nothing is found there, love-require will delegate the call
+to the default Lua `require` function, which will look at `foo/bar/baz.lua`.
 
 # License
 
