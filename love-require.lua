@@ -32,17 +32,17 @@
 -- -- Method 1 (preferred)
 -- -- Replaces the global require so that modules you require go through this
 -- -- module when they require modules of their own.
--- local lfsrequire = require('lfsrequire')
--- lfsrequire.mount('lib')
--- lfsrequire.enable()
+-- local loverequire = require('love-require')
+-- loverequire.mount('lib')
+-- loverequire.enable()
 -- local bar = require('foo.bar') -- this will find lib/foo/bar.lua
 --
 -- -- Method 2
 -- -- Only works as long as modules you require do not require modules that
--- -- rely on directories mounted via lfsrequire.
--- local lfsrequire = require('lfsrequire')
--- lfsrequire.mount('lib')
--- local bar = lfsrequire('foo.bar') -- this will find lib/foo/bar.lua
+-- -- rely on directories mounted via love-require.
+-- local loverequire = require('love-require')
+-- loverequire.mount('lib')
+-- local bar = loverequire('foo.bar') -- this will find lib/foo/bar.lua
 
 local M = {}
 
@@ -91,7 +91,7 @@ function M.require(name)
   return _require(name)
 end
 
---- Sets lfsrequire as the global `require` function.
+--- Sets love-require as the global `require` function.
 function M.enable()
   require = M.require
 end
