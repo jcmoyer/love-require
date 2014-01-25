@@ -58,7 +58,7 @@ end
 --- Unmounts a directory.
 -- @string dir Directory name to unmount. Case sensitive.
 function M.unmount(dir)
-  for i = 1, #modtable do
+  for i = #modtable, 1, -1 do
     if modtable[i] == dir then
       table.remove(modtable, i)
     end
