@@ -1,3 +1,9 @@
+# Deprecated
+
+This library has been superseded by `love.filesystem.setRequirePath` and
+`love.filesystem.getRequirePath` in love 0.10.0. Use those functions instead if
+they are available.
+
 # What's this?
 
 love-require implements a better require function for LÖVE-based games. The
